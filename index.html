@@ -3,211 +3,117 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday Bimal Sir 💗</title>
+<title>Happy Birthday Bimal Sir 🎉</title>
 <style>
-    :root {
-        --main-padding: 10px;
-    }
     body {
         margin: 0;
-        padding: 0;
-        background: linear-gradient(270deg, #ff9a9e, #fad0c4, #fbc2eb, #a6c1ee);
-        background-size: 800% 800%;
-        animation: bgAnim 15s ease infinite;
-        overflow: hidden;
-        font-family: 'Comic Sans MS', cursive, sans-serif;
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fbc2eb, #a18cd1);
+        background-size: 400% 400%;
+        animation: gradientBG 12s ease infinite;
         text-align: center;
         color: white;
-        padding: var(--main-padding);
+        overflow-x: hidden;
     }
-    @keyframes bgAnim {
-        0% {background-position: 0% 50%;}
-        50% {background-position: 100% 50%;}
-        100% {background-position: 0% 50%;}
+
+    @keyframes gradientBG {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
     }
+
     h1 {
-        font-size: clamp(1.8rem, 5vw, 3rem);
-        margin-top: 15px;
-        animation: glow 1.5s infinite alternate, pulse 2s infinite;
-        word-wrap: break-word;
+        font-size: 3em;
+        margin-top: 50px;
+        animation: glow 2s infinite alternate;
     }
+
     @keyframes glow {
-        from { text-shadow: 0 0 10px #ff6b6b, 0 0 20px #ff6b6b; }
-        to { text-shadow: 0 0 30px #ffd93d, 0 0 50px #ff6b6b; }
+        from { text-shadow: 0 0 10px #fff, 0 0 20px #ff9a9e, 0 0 30px #ff758c; }
+        to { text-shadow: 0 0 20px #fff, 0 0 30px #ff9a9e, 0 0 40px #ff758c; }
     }
-    @keyframes pulse {
-        0%, 100% { transform: scale(1); }
-        50% { transform: scale(1.05); }
-    }
+
     img {
-        width: 100%;
-        max-width: 500px;
-        height: auto;
-        margin-top: 10px;
-        border: 4px solid white;
+        width: 80%;
+        max-width: 350px;
         border-radius: 15px;
-        box-shadow: 0 0 30px white;
-        animation: floaty 5s ease-in-out infinite, glowBorder 3s ease-in-out infinite alternate;
+        box-shadow: 0px 0px 30px rgba(255,255,255,0.8);
+        animation: float 4s ease-in-out infinite;
+        margin-top: 20px;
     }
-    @keyframes floaty {
-        0% { transform: translateY(0px) rotate(0deg) scale(1); }
-        25% { transform: translateY(-10px) rotate(1deg) scale(1.02); }
-        50% { transform: translateY(0px) rotate(0deg) scale(1.03); }
-        75% { transform: translateY(10px) rotate(-1deg) scale(1.02); }
-        100% { transform: translateY(0px) rotate(0deg) scale(1); }
+
+    @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
     }
-    @keyframes glowBorder {
-        from { box-shadow: 0 0 20px #ff6b6b, 0 0 40px #ffd93d; }
-        to { box-shadow: 0 0 40px #ff6b6b, 0 0 60px #ffd93d; }
+
+    .btn {
+        margin-top: 30px;
+        padding: 15px 30px;
+        background: #ff758c;
+        border: none;
+        border-radius: 30px;
+        font-size: 1.2em;
+        color: white;
+        cursor: pointer;
+        box-shadow: 0px 4px 20px rgba(0,0,0,0.3);
+        transition: 0.3s;
     }
-    .balloon, .heart {
-        position: absolute;
-        bottom: -100px;
-        width: 40px;
-        height: 60px;
-        border-radius: 50%;
-        animation: floatUp 6s infinite ease-in;
-        z-index: 0;
+
+    .btn:hover {
+        background: #ff4e70;
+        transform: scale(1.05);
     }
-    .heart {
-        background: red;
-        width: 25px;
-        height: 25px;
-        transform: rotate(-45deg);
+
+    footer {
+        margin-top: 40px;
+        font-size: 14px;
+        opacity: 0.8;
     }
-    .heart::before, .heart::after {
-        content: "";
-        position: absolute;
-        width: 25px;
-        height: 25px;
-        background: red;
-        border-radius: 50%;
+
+    @keyframes confetti {
+        0% { transform: translateY(-10vh); }
+        100% { transform: translateY(110vh); }
     }
-    .heart::before { top: -12px; left: 0; }
-    .heart::after { left: 12px; top: 0; }
-    @keyframes floatUp {
-        0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-        100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
-    }
-    canvas {
-        position: absolute;
-        top: 0;
-        left: 0;
-        pointer-events: none;
-    }
-    /* Footer style */
-    .footer {
+
+    .confetti {
         position: fixed;
-        bottom: 10px;
-        left: 50%;
-        transform: translateX(-50%);
-        background: rgba(0,0,0,0.3);
-        padding: 8px 15px;
-        border-radius: 15px;
-        font-size: 0.9rem;
-        backdrop-filter: blur(5px);
-        animation: glowFooter 2s infinite alternate;
-    }
-    @keyframes glowFooter {
-        from { box-shadow: 0 0 10px #ffd93d; }
-        to { box-shadow: 0 0 20px #ff6b6b; }
-    }
-    .footer a {
-        color: #ffd93d;
-        text-decoration: none;
+        width: 10px;
+        height: 10px;
+        background: red;
+        top: -10px;
+        animation: confetti 4s linear infinite;
     }
 </style>
 </head>
 <body>
 
-<h1 id="title"></h1>
-<img src="01.jpg" alt="Bimal Sir">
+<h1>🎉 Happy Birthday Bimal Sir 💗 🎂</h1>
+<img src="bimal.jpg" alt="Bimal Sir">
 
-<audio autoplay loop>
-    <source src="happy-birthday-155461.mp3" type="audio/mpeg">
-</audio>
+<button class="btn" onclick="startCelebration()">Start Celebration 🎵</button>
 
-<canvas id="confetti"></canvas>
+<audio id="birthdaySong" src="happy-birthday.mp3"></audio>
 
-<!-- Footer with contact -->
-<div class="footer">
-    Developed by <strong>Aloka Malinga</strong> | 
-    <a href="mailto:alokatekteach@gmail.com">alokatekteach@gmail.com</a> | 
-    <a href="tel:0740310879">0740310879</a>
-</div>
+<footer>
+    <p>Website developed by <b>Aloka Malinga</b> | 📧 alokatekteach@gmail.com | 📞 0740310879</p>
+</footer>
 
 <script>
-    // Typing effect for title
-    const text = "🎉 Happy Birthday Bimal Sir 💗 🎉";
-    let i = 0;
-    function typeWriter() {
-        if (i < text.length) {
-            document.getElementById("title").innerHTML += text.charAt(i);
-            i++;
-            setTimeout(typeWriter, 100);
-        }
-    }
-    typeWriter();
+function startCelebration() {
+    let audio = document.getElementById("birthdaySong");
+    audio.play();
 
-    // Balloons & hearts
-    function createFloatingShape(type) {
-        const el = document.createElement('div');
-        el.classList.add(type);
-        document.body.appendChild(el);
-        el.style.left = Math.random() * window.innerWidth + 'px';
-        el.style.background = type === 'balloon' ? `hsl(${Math.random()*360}, 70%, 60%)` : 'red';
-        el.style.animationDuration = (Math.random() * 3 + 4) + 's';
-        setTimeout(() => el.remove(), 7000);
+    for(let i = 0; i < 100; i++) {
+        let conf = document.createElement("div");
+        conf.classList.add("confetti");
+        document.body.appendChild(conf);
+        conf.style.left = Math.random() * 100 + "vw";
+        conf.style.backgroundColor = "hsl(" + Math.random() * 360 + ",100%,50%)";
+        conf.style.animationDuration = (Math.random() * 3 + 2) + "s";
+        conf.style.animationDelay = Math.random() + "s";
     }
-    setInterval(() => createFloatingShape('balloon'), 400);
-    setInterval(() => createFloatingShape('heart'), 1000);
-
-    // Confetti
-    const canvas = document.getElementById("confetti");
-    const ctx = canvas.getContext("2d");
-    let confettis = [];
-    function resizeCanvas() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-    }
-    window.addEventListener("resize", resizeCanvas);
-    resizeCanvas();
-    function createConfetti() {
-        return {
-            x: Math.random() * canvas.width,
-            y: Math.random() * canvas.height - canvas.height,
-            r: Math.random() * 6 + 4,
-            dx: Math.random() - 0.5,
-            dy: Math.random() * 3 + 2,
-            color: `hsl(${Math.random()*360}, 100%, 50%)`
-        };
-    }
-    for (let i = 0; i < 150; i++) confettis.push(createConfetti());
-    function drawConfetti() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        confettis.forEach(c => {
-            ctx.beginPath();
-            ctx.arc(c.x, c.y, c.r, 0, Math.PI*2);
-            ctx.fillStyle = c.color;
-            ctx.fill();
-        });
-    }
-    function updateConfetti() {
-        confettis.forEach(c => {
-            c.x += c.dx;
-            c.y += c.dy;
-            if (c.y > canvas.height) {
-                c.x = Math.random() * canvas.width;
-                c.y = -10;
-            }
-        });
-    }
-    function animateConfetti() {
-        drawConfetti();
-        updateConfetti();
-        requestAnimationFrame(animateConfetti);
-    }
-    animateConfetti();
+}
 </script>
 
 </body>
