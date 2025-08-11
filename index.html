@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Happy Birthday Bimal Sir 💗</title>
 <style>
     :root {
@@ -19,12 +19,13 @@
         text-align: center;
         color: white;
         padding: var(--main-padding);
-        height: 100vh;
+        min-height: 100vh;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         user-select: none;
+        box-sizing: border-box;
     }
     @keyframes bgAnim {
         0% {background-position: 0% 50%;}
@@ -32,13 +33,14 @@
         100% {background-position: 0% 50%;}
     }
     h1 {
-        font-size: clamp(1.8rem, 5vw, 3rem);
+        font-size: clamp(1.8rem, 8vw, 4rem);
         margin: 0;
         animation: glow 1.5s infinite alternate, pulse 2s infinite;
         word-wrap: break-word;
         user-select: none;
         display: none;
         margin-top: 20px;
+        max-width: 90%;
     }
     @keyframes glow {
         from { text-shadow: 0 0 10px #ff6b6b, 0 0 20px #ff6b6b; }
@@ -49,10 +51,10 @@
         50% { transform: scale(1.05); }
     }
     img {
-        width: 100%;
+        width: 90%;
         max-width: 500px;
         height: auto;
-        margin-top: 10px;
+        margin-top: 20px;
         border: 4px solid white;
         border-radius: 15px;
         box-shadow:
@@ -126,10 +128,11 @@
         user-select: none;
         z-index: 20;
         display: none;
-    }
-    @keyframes glowFooter {
-        from { box-shadow: 0 0 10px #ffd93d; }
-        to { box-shadow: 0 0 20px #ff6b6b; }
+        width: auto;
+        max-width: 90%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
     .footer a {
         color: #ffd93d;
@@ -141,7 +144,7 @@
         background: #ff758c;
         border: none;
         border-radius: 40px;
-        font-size: 1.8em;
+        font-size: clamp(1.2rem, 5vw, 1.8rem);
         color: white;
         cursor: pointer;
         box-shadow: 0px 4px 20px rgba(0,0,0,0.3);
@@ -149,10 +152,21 @@
         user-select: none;
         z-index: 20;
         outline: none;
+        text-align: center;
+        max-width: 80%;
     }
     #startBtn:hover {
         background: #ff4e70;
         transform: scale(1.05);
+    }
+    @media (max-width: 600px) {
+        .footer {
+            font-size: 0.8rem;
+            padding: 6px 10px;
+        }
+        h1 {
+            font-size: clamp(1.8rem, 8vw, 3rem);
+        }
     }
 </style>
 </head>
@@ -167,7 +181,6 @@
 
 <canvas id="confetti"></canvas>
 
-<!-- Footer with contact -->
 <div class="footer" aria-label="Developer contact info">
     Developed by <strong>Aloka Malinga</strong> | 
     <a href="mailto:alokatekteach@gmail.com">alokatekteach@gmail.com</a> | 
