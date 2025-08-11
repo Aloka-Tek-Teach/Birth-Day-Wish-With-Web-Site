@@ -50,20 +50,27 @@
         0%, 100% { transform: scale(1); }
         50% { transform: scale(1.05); }
     }
-    img {
-        width: 90%;
-        max-width: 500px;
-        height: auto;
+    .photo-container {
+        position: relative;
+        display: none; /* Hide by default */
+        text-align: center;
         margin-top: 20px;
-        border: 4px solid white;
-        border-radius: 15px;
+        max-width: 500px;
+        width: 90%;
+        animation: floaty 5s ease-in-out infinite, glowBorder 3s ease-in-out infinite alternate;
         box-shadow:
           0 0 30px white,
           0 0 40px #ff9a9e,
           0 0 50px #ffd93d;
-        animation: floaty 5s ease-in-out infinite, glowBorder 3s ease-in-out infinite alternate;
+        border-radius: 15px;
+    }
+    img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border: 4px solid white;
+        border-radius: 15px;
         user-select: none;
-        display: none;
     }
     @keyframes floaty {
         0% { transform: translateY(0px) rotate(0deg) scale(1); }
@@ -75,6 +82,27 @@
     @keyframes glowBorder {
         from { box-shadow: 0 0 20px #ff6b6b, 0 0 40px #ffd93d; }
         to { box-shadow: 0 0 40px #ff6b6b, 0 0 60px #ffd93d; }
+    }
+    .contact-info {
+        margin-top: 10px; /* Small margin between photo and info */
+        padding: 5px 10px;
+        background: rgba(0,0,0,0.4);
+        border-radius: 10px;
+        font-size: clamp(0.9rem, 4vw, 1.2rem);
+        backdrop-filter: blur(5px);
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+        color: white;
+        text-align: center;
+        width: 100%;
+        box-sizing: border-box; /* Ensures padding is included in the width */
+    }
+    .contact-info a {
+        color: #ffd93d;
+        text-decoration: none;
+        font-weight: bold;
+    }
+    .contact-info p {
+        margin: 5px 0;
     }
     .balloon, .heart {
         position: absolute;
@@ -113,32 +141,6 @@
         z-index: 10;
         display: none;
     }
-    .contact-info {
-        margin-top: 20px;
-        padding: 10px 20px;
-        background: rgba(0,0,0,0.4);
-        border-radius: 10px;
-        font-size: clamp(0.9rem, 4vw, 1.2rem);
-        backdrop-filter: blur(5px);
-        box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
-        color: white;
-        text-align: center;
-        max-width: 90%;
-        opacity: 0;
-        animation: fadeIn 2s forwards 3s; /* delay starts after 3s */
-        display: none; /* Hide by default */
-    }
-    @keyframes fadeIn {
-        to { opacity: 1; }
-    }
-    .contact-info a {
-        color: #ffd93d;
-        text-decoration: none;
-        font-weight: bold;
-    }
-    .contact-info p {
-        margin: 5px 0;
-    }
     /* Celebrate button */
     #startBtn {
         padding: 20px 50px;
@@ -176,12 +178,14 @@
 <button id="startBtn" aria-label="Start Birthday Celebration">Celebrate 🎉</button>
 
 <h1 id="title"></h1>
-<img id="bimalImg" src="01.jpg" alt="Bimal Sir" draggable="false" />
 
-<div class="contact-info" id="contactInfo">
-    <p>Developed by <strong>Aloka Malinga</strong></p>
-    <p><a href="mailto:alokatekteach@gmail.com">alokatekteach@gmail.com</a></p>
-    <p><a href="tel:0740310879">0740310879</a></p>
+<div class="photo-container" id="photoContainer">
+    <img id="bimalImg" src="01.jpg" alt="Bimal Sir" draggable="false" />
+    <div class="contact-info">
+        <p>Developed by <strong>Aloka Malinga</strong></p>
+        <p><a href="mailto:alokatekteach@gmail.com">alokatekteach@gmail.com</a></p>
+        <p><a href="tel:0740310879">0740310879</a></p>
+    </div>
 </div>
 
 <audio id="birthdayAudio" src="happy-birthday-155461.mp3" loop></audio>
@@ -192,8 +196,7 @@
     // Variables
     const startBtn = document.getElementById('startBtn');
     const title = document.getElementById('title');
-    const img = document.getElementById('bimalImg');
-    const contactInfo = document.getElementById('contactInfo');
+    const photoContainer = document.getElementById('photoContainer');
     const canvas = document.getElementById('confetti');
     const ctx = canvas.getContext('2d');
     const audio = document.getElementById('birthdayAudio');
@@ -275,8 +278,7 @@
 
         // Show elements
         title.style.display = 'block';
-        img.style.display = 'block';
-        contactInfo.style.display = 'block';
+        photoContainer.style.display = 'block';
         canvas.style.display = 'block';
 
         // Start typing effect
