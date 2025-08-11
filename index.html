@@ -95,6 +95,27 @@
         left: 0;
         pointer-events: none;
     }
+    /* Footer style */
+    .footer {
+        position: fixed;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(0,0,0,0.3);
+        padding: 8px 15px;
+        border-radius: 15px;
+        font-size: 0.9rem;
+        backdrop-filter: blur(5px);
+        animation: glowFooter 2s infinite alternate;
+    }
+    @keyframes glowFooter {
+        from { box-shadow: 0 0 10px #ffd93d; }
+        to { box-shadow: 0 0 20px #ff6b6b; }
+    }
+    .footer a {
+        color: #ffd93d;
+        text-decoration: none;
+    }
 </style>
 </head>
 <body>
@@ -107,6 +128,13 @@
 </audio>
 
 <canvas id="confetti"></canvas>
+
+<!-- Footer with contact -->
+<div class="footer">
+    Developed by <strong>Aloka Malinga</strong> | 
+    <a href="mailto:alokatekteach@gmail.com">alokatekteach@gmail.com</a> | 
+    <a href="tel:0740310879">0740310879</a>
+</div>
 
 <script>
     // Typing effect for title
